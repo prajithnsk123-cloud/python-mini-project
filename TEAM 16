@@ -7,7 +7,7 @@ import customtkinter as ctk
 def age_calculator():
     window = Toplevel(main_window)
     window.title("AGE CALCULATOR")
-    window.geometry("450x250")
+    window.geometry("560x300")
 
     def submit():
         try:
@@ -43,9 +43,9 @@ def age_calculator():
         entry.delete(0, END)
         label2.config(text="")
 
-    Label(window, text="ENTER YOUR DOB IN [DD-MM-YYYY] FORMAT",
+    Label(window, text="ENTER YOUR DOB IN [DD-MM-YYYY]",
           font=("Arial", 20, "bold"),
-          fg='#fffb1f').pack()
+          fg='#fffb1f',bg = 'black').pack()
 
     entry = Entry(window, font=("Arial", 20), bg="black", fg="white")
 
@@ -53,26 +53,23 @@ def age_calculator():
     button1 =Button(window, text="Submit", font=('Arial', 30),
              command=submit)
 
-    button2 = Button(window, text="clear", font=('Arial', 30), command=clear,
-                     borderwidth=0, relief="sunken", activebackground="black", activeforeground="white")
+    button2 = Button(window, text="clear", font=('Arial', 30), command= clear )
 
-    button3 = Button(window, text="EXIT", font=('Arial', 30), command=window.destroy,
-                     borderwidth=0, relief="raised", activebackground="black",
-                     activeforeground="white")
+    button3 = Button(window, text="EXIT", font=('Arial', 30), command=window.destroy)
+
 
     label2 = Label(window)
     entry.pack(ipadx=30, ipady=15, pady=5)
-    button1.place(x=300, y=110)
-    button2.place(x=160, y=110)
-    button3.place(x=20, y=110)
-    label2.place(x=15, y=170)
+    button1.place(x=340, y=120)
+    button2.place(x=180, y=120)
+    button3.place(x=20, y=120)
+    label2.place(x=0, y=210)
 
 
 def countdown():
     root = Toplevel(main_window)
-    root.geometry("300x250")
+    root.geometry("450x300")
     root.title("Event Countdown")
-
     Label(root, text="Event Name",font =("Arial", 20, "bold")).pack()
     name_entry = Entry(root,font=("Arial", 20))
     name_entry.pack()
@@ -82,7 +79,7 @@ def countdown():
     date_entry.pack()
 
     label = Label(root, font=("Arial", 20))
-    label.pack(pady=10)
+
 
     def update():
         try:
@@ -103,7 +100,8 @@ def countdown():
         except ValueError:
             messagebox.showerror("Error", "Invalid date format")
 
-    Button(root, text="Start Countdown", command=update,font=("Arial", 20)).pack()
+    Button(root, text="Start Countdown", command=update,font=("Arial", 20)).pack(pady = 10)
+    label.pack(pady=10)
 
 
 
@@ -144,23 +142,21 @@ def day_finder():
 
 
 main_window = Tk()
-main_window.geometry("300x320")
+main_window.geometry("500x450")
 main_window.configure(background="#0288f5")
 main_window.title("DATE AND TIME APPLICATIONS")
 
-main_label = Label(main_window, text="CHOOSE YOU REQUIRED APPLICATION")
-main_label.config(font=("Arial", 16,'bold'),
+main_label = Label(main_window, text= "CHOOSE YOU REQUIRED APPLICATION")
+main_label.config(font=("Arial", 18,'bold'),
                   bg="#0448b5",
                   width=30,
                   bd=3,
-                  cursor="hand",
                   fg="red",
                   padx=15,
                   pady=15,
                   justify='center',
                   relief='raised',
                   underline=0,
-                  wraplength=250
                   )
 main_label.pack()
 
@@ -171,7 +167,7 @@ main_button1.config(font=("Arial",20,"bold"),
                     anchor="center",
                     bd=3,
                     bg="lightgray",
-                    cursor="hand",
+
                     highlightbackground="black",
                     highlightcolor="green",
                     highlightthickness=2,
@@ -179,7 +175,7 @@ main_button1.config(font=("Arial",20,"bold"),
                     overrelief="raised",
                     padx=15,
                     )
-main_button1.pack(pady = 10)
+main_button1.pack(pady = 10,ipadx=10)
 
 main_button2 = Button(main_window,text="EVENT COUNTDOWN",command = countdown)
 main_button2.config(font=("Arial",20,"bold"),
@@ -188,14 +184,14 @@ main_button2.config(font=("Arial",20,"bold"),
                     anchor="center",
                     bd=3,
                     bg="lightgray",
-                    cursor="hand",
+
                     highlightbackground="black",
                     highlightcolor="green",
                     highlightthickness=2,
                     justify="center",
                     overrelief="raised",
                     )
-main_button2.pack(pady = 10, ipadx = 5)
+main_button2.pack(pady = 10, ipadx = 10)
 
 
 main_button3 = Button(main_window,text = 'DAY FINDER',command = day_finder)
@@ -205,7 +201,7 @@ main_button3.config(font=("Arial",20,"bold"),
                     anchor="center",
                     bd=3,
                     bg="lightgray",
-                    cursor="hand",
+
                     highlightbackground="black",
                     highlightcolor="green",
                     highlightthickness=2,
@@ -213,7 +209,7 @@ main_button3.config(font=("Arial",20,"bold"),
                     overrelief="raised",
                     )
 
-main_button3.pack(pady = 10,ipadx= 47)
+main_button3.pack(pady = 10,ipadx= 69)
 
 exit_button = Button(main_window,text="EXIT",command=main_window.destroy)
 exit_button.config(font=("Arial",20,"bold"),
@@ -222,13 +218,13 @@ exit_button.config(font=("Arial",20,"bold"),
                     anchor="center",
                     bd=3,
                     bg="lightgray",
-                    cursor="hand",
+
                     highlightbackground="black",
                     highlightcolor="green",
                     highlightthickness=2,
                     justify="center",
                     overrelief="raised",
                     )
-exit_button.pack(pady = 10,ipadx= 87)
+exit_button.pack(pady = 10,ipadx= 120)
 
 main_window.mainloop()
